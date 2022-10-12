@@ -20,6 +20,14 @@ export class Web3Service {
 
   constructor() {
     const providerOptions = {
+      injected: {
+        display: {
+          logo: 'https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg',
+          name: 'metamask',
+          description: "Connect with the provider in your Browser"
+        },
+        package: null
+      },
       walletconnect: {
         package: WalletConnectProvider, // required | aqui importamos el paquete que nos ayudara a usar soportar distintas wallets
         options: {
@@ -36,21 +44,14 @@ export class Web3Service {
             ]
           }
         }
-      },
-      injected: {
-        display: {
-          logo: 'https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Fox.svg',
-          name: 'metamask',
-          description: "Connect with the provider in your Browser"
-        },
-        package: null
-      },
+      }
     };
 
     this.web3Modal = new Web3Modal({
       network: "Ganache", // puedes cambiar a una red de pruebas o etc
-      cacheProvider: true, // optional
+      cacheProvider: false, // optional
       providerOptions, // required
+      disableInjectedProvider: false,
       theme: {
         background: "rgb(39, 49, 56)",
         main: "rgb(199, 199, 199)",

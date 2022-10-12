@@ -15,10 +15,8 @@ export class VotacionComponent implements OnInit {
   }
 
   public async conectarWallet() {
-    if (typeof window.ethereum !== 'undefined') {
-      const result = await this.web3Service.connectAccount();
-      console.log(result)
-    }
+    const result = await this.web3Service.connectAccount();
+    console.log(result)
   }
 
 }
